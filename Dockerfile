@@ -3,7 +3,7 @@
 FROM alpine:edge
 
 ENV BUILDPKGS "git gcc libc-dev make vde2-dev libpcap-dev linux-headers readline-dev cmake alpine-sdk"
-ENV RUNPKGS "net-tools vde2 vde2-libs libpcap nano readline bash curl wget unzip"
+ENV RUNPKGS "mc"
 
 RUN apk --update --no-cache add $RUNPKGS && rm -rf /var/cache/apk/* && \
     apk --no-cache add --virtual build-dependencies $BUILDPKGS && \
@@ -11,7 +11,9 @@ RUN apk --update --no-cache add $RUNPKGS && rm -rf /var/cache/apk/* && \
     mkdir /usr/src && cd /usr/src && \
     git clone https://github.com/hercules-390/hyperion.git  && \
     cd hyperion && \
-    ./1Stop
+    ./1Stop && \
+    cd /usr/src/x86_64/hyperion && \
+    make install
 \
     #apk del build-dependencies && \
     #rm -rf /var/cache/apk/* && \
