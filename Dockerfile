@@ -13,7 +13,7 @@ RUN apk --update --no-cache add $RUNPKGS && \
     cd hyperion && \
     ./1Stop && \
     cd /usr/src/x86_64/hyperion && \
-    make install
+    make install && \
 \
     #apk del build-dependencies && \
     #rm -rf /var/cache/apk/* && \
