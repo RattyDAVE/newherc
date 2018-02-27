@@ -17,7 +17,7 @@ RUN apk --update --no-cache add $RUNPKGS && \
 \
     #apk del build-dependencies && \
     #rm -rf /var/cache/apk/* && \
-    #mkdir /machines
+    mkdir /machines
   
 #ENV PATH /usr/src/simh/BIN:$PATH
 
