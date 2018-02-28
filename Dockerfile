@@ -1,6 +1,6 @@
 #Dockerfile-latest
 
-FROM alpine:edge
+FROM alpine:latest
 
 ENV BUILDPKGS "git gcc libc-dev make vde2-dev libpcap-dev linux-headers readline-dev cmake alpine-sdk"
 ENV RUNPKGS "mc"
