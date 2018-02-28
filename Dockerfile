@@ -2,7 +2,7 @@
 
 FROM alpine:latest
 
-ENV BUILDPKGS "git gcc libc-dev make vde2-dev libpcap-dev linux-headers readline-dev cmake autoconf alpine-sdk"
+ENV BUILDPKGS "git gcc libc-dev make vde2-dev libpcap-dev linux-headers readline-dev cmake autoconf automake alpine-sdk"
 ENV RUNPKGS "mc"
 
 RUN apk --update --no-cache add $RUNPKGS && \
