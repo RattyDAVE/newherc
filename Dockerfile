@@ -1,5 +1,3 @@
-#Dockerfile-latest
-
 FROM alpine:latest
 
 ENV BUILDPKGS "git"
@@ -9,13 +7,9 @@ RUN apk --update --no-cache add $RUNPKGS && \
     apk --no-cache add --virtual build-dependencies $BUILDPKGS && \
 \
     mkdir /usr/src && cd /usr/src && \
-    git clone https://github.com/SDL-Hercules-390/hyperion.git  && \
-\
+    git clone https://github.com/SDL-Hercules-390/hyperion.git
+    
     #apk del build-dependencies && \
     #rm -rf /var/cache/apk/* && \
   
-#ENV PATH /usr/src/simh/BIN:$PATH
-
-#EXPOSE 2323-2326
-
 ENTRYPOINT ["busybox", "sh"]
