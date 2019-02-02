@@ -1,6 +1,6 @@
 FROM alpine:edge
 
-ENV BUILDPKGS "git perl autoconf automake flex gawk gcc m4 make g++"
+ENV BUILDPKGS "git perl autoconf automake flex gawk gcc m4 make g++ bash"
 ENV RUNPKGS "mc"
 
 RUN apk --update --no-cache add $RUNPKGS && \
@@ -12,7 +12,14 @@ RUN apk --update --no-cache add $RUNPKGS && \
     ./autogen.sh
     
 RUN cd /usr/src/hyperion && \
-    /bin/sh -x ./configure --enable-ipv6=no
+    /bin/bash ./configure --enable-ipv6=no
+    
+RUN cd /usr/src/hyperion && \
+    make
+
+RUN cd /usr/src/hyperion && \
+    make install
+
     
     #apk del build-dependencies && \
     #rm -rf /var/cache/apk/* && \
