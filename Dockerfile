@@ -12,7 +12,7 @@ RUN apk --update --no-cache add $RUNPKGS && \
     ./autogen.sh
     
 RUN cd /usr/src/hyperion && \
-    ./configure --enable-ipv6=no
+    /bin sh -x ./configure --enable-ipv6=no
     
     #apk del build-dependencies && \
     #rm -rf /var/cache/apk/* && \
